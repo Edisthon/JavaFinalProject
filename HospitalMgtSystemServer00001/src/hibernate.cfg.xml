@@ -1,0 +1,37 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- Database connection settings -->
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/hospital_management_system_db?createDatabaseIfNotExist=true</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">password</property>
+
+        <!-- JDBC connection pool (use a production-ready pool in a real app) -->
+        <property name="connection.pool_size">1</property>
+
+        <!-- SQL dialect -->
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">true</property>
+
+        <!-- Drop and re-create the database schema on startup -->
+        <!-- Use "validate" in production when the schema is stable -->
+        <property name="hbm2ddl.auto">update</property>
+
+        <!-- Names the current session context -->
+        <property name="current_session_context_class">thread</property>
+
+        <!-- TODO: Add <mapping class="..."/> entries for entities here -->
+        <!-- e.g., <mapping class="com.hospital.server.model.User"/> -->
+        <mapping class="com.hospital.server.model.User"/>
+        <mapping class="com.hospital.server.model.Patient"/>
+        <mapping class="com.hospital.server.model.Doctor"/>
+        <mapping class="com.hospital.server.model.Appointment"/>
+        <mapping class="com.hospital.server.model.MedicalRecord"/>
+
+    </session-factory>
+</hibernate-configuration>
